@@ -1,4 +1,1 @@
-function square(number) {
-  return number * number;
-}
-console.dir(square);
+// 연습장
