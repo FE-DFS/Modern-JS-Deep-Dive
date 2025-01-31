@@ -20,24 +20,24 @@
 
 ```js
 GlobalLexicalEnvironment = {
-EnvironmentRecord: {
-// 1. **Global Environment Record** (전역 환경 레코드)
-// - **Object Environment Record**: `var` 변수, 함수 선언을 `window`에 바인딩
-// - **Declarative Environment Record**: `const`, `let`, 클래스 등 전역 스코프의 선언 저장
-[[ObjectRecord]]: {
-type: "Object",
-bindings: window, // `var` 변수는 여기에 연결
-},
-[[DeclarativeRecord]]: {
-type: "Declarative",
-bindings: {
-x: <uninitialized>, // TDZ (Temporal Dead Zone)
-foo: <func reference>, // 함수 선언은 즉시 할당
-},
-},
-[[GlobalThisValue]]: window, // 전역 `this` 바인딩
-},
-OuterLexicalEnvironmentReference: null, // 외부 환경 참조 없음
+  EnvironmentRecord: {
+    // 1. **Global Environment Record** (전역 환경 레코드)
+    // - **Object Environment Record**: `var` 변수, 함수 선언을 `window`에 바인딩
+    // - **Declarative Environment Record**: `const`, `let`, 클래스 등 전역 스코프의 선언 저장
+    [[ObjectRecord]]: {
+      type: "Object",
+      bindings: window, // `var` 변수는 여기에 연결
+    },
+    [[DeclarativeRecord]]: {
+      type: "Declarative",
+      bindings: {
+        x: <uninitialized>, // TDZ (Temporal Dead Zone)
+        foo: <func reference>, // 함수 선언은 즉시 할당
+      },
+    },
+    [[GlobalThisValue]]: window, // 전역 `this` 바인딩
+  },
+  OuterLexicalEnvironmentReference: null, // 외부 환경 참조 없음
 };
 ```
 
@@ -61,15 +61,15 @@ OuterLexicalEnvironmentReference: null, // 외부 환경 참조 없음
 
 ```js
 fooLexicalEnvironment = {
-EnvironmentRecord: {
-type: "Declarative", // **Declarative Environment Record**
-bindings: {
-y: <uninitialized>, // TDZ
-bar: <func reference>,
-},
-},
-OuterLexicalEnvironmentReference: GlobalLexicalEnvironment, // 외부 참조
-ThisBinding: window, // 일반 함수이므로 `this`는 전역 객체
+  EnvironmentRecord: {
+    type: "Declarative", // **Declarative Environment Record**
+    bindings: {
+      y: <uninitialized>, // TDZ
+      bar: <func reference>,
+    },
+  },
+  OuterLexicalEnvironmentReference: GlobalLexicalEnvironment, // 외부 참조
+  ThisBinding: window, // 일반 함수이므로 `this`는 전역 객체
 };
 ```
 
@@ -81,14 +81,15 @@ ThisBinding: window, // 일반 함수이므로 `this`는 전역 객체
 
 ```js
 barLexicalEnvironment = {
-EnvironmentRecord: {
-type: "Declarative",
-bindings: {
-z: <uninitialized>,
-},
-},
-OuterLexicalEnvironmentReference: fooLexicalEnvironment, // 외부 참조
-ThisBinding: window,
+  EnvironmentRecord: {
+    type: "Declarative",
+    bindings: {
+      z: <uninitialized>,
+    },
+  },
+  OuterLexicalEnvironmentReference: fooLexicalEnvironment, // 외부 참조
+  ThisBinding: window,
+};
 };
 ```
 
