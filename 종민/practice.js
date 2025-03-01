@@ -1,1 +1,1 @@
-// 연습장
+// practice.js
