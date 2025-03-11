@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #fruits {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+      }
+
+      #fruits li {
+        width: 100px;
+        cursor: pointer;
+      }
+
+      #fruits .active {
+        color: red;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul id="fruits">
+        <li id="apple" class="active">Apple</li>
+        <li id="banana">Banana</li>
+        <li id="orange">Orange</li>
+      </ul>
+      <div>선택된 내비게이션 아이템: <em class="msg">apple</em></div>
+    </nav>
+    <script>
+      const $fruits = document.getElementById("fruits");
+      const $msg = document.querySelector(".msg");
+
+      function activate({ target }) {
+        // 이벤트 발생요인이 fruits > li가 이니라면 무시
+        if (!target.matches("#fruits > li")) return;
+        [...$fruits.children].forEach(($fruit) => {
+          $fruit.classList.toggle("active", $fruit == target);
+          $msg.textContent = target.id;
+        });
+      }
+      /**
+       * 모든 네비게이션에 등록
+       */
+      // document.getElementById("apple").onclick = activate;
+      // document.getElementById("banana").onclick = activate;
+      // document.getElementById("orange").onclick = activate;
+
+      /**
+       * 버블링을 이용한 예제
+       */
+      $fruits.onclick = activate;
+    </script>
+  </body>
+</html>
