@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function* genFunc() {
+        const x = yield 1;
+        const y = yield x + 10;
+        return x + y;
+      }
+      //   const generator = genFunc(0);
+      //   console.log(generator);
+      //   let res = generator.next();
+      //   console.log(res);
+      //   res = generator.next(10);
+      //   console.log(res);
+      //   res = generator.next(20);
+      //   console.log(res);
+
+      //이터러블로 피보나치 구현
+      const infiniteFibonacci = (function () {
+        let [pre, cur] = [0, 1];
+
+        return {
+          [Symbol.iterator]() {
+            return this;
+          },
+          next() {
+            [pre, cur] = [cur, pre, cur];
+            return { value: cur };
+          },
+        };
+      })();
+
+      // 제너레이터를 이용
+      const infiniteFibonacciGen = (function* () {
+        let [pre, cur] = [0, 1];
+
+        while (true) {
+          [pre, cur] = [cur, pre + cur];
+          yield cur;
+        }
+      })();
+
+      //   for (const num of infiniteFibonacciGen) {
+      //     if (num > 10000) break;
+      //     console.log(num);
+      //   }
+    </script>
+  </body>
+</html>
