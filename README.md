@@ -1,7 +1,7 @@
 # Modern-JS-Deep-Dive
 모던 자바스크립트 딥다이브 스터디
 
-스터디 시작 (2024.01.13 ~ )
+스터디 시작 (2025.01.13 ~ 2025.03.26)
 
 ## 🧑🏻‍💻👩🏻‍💻 멤버 소개
 | <img src="https://avatars.githubusercontent.com/u/123517278?v=4"> | <img src="https://avatars.githubusercontent.com/u/86304360?v=4"> |<img src="https://avatars.githubusercontent.com/u/105118884?v=4">  |<img src="https://avatars.githubusercontent.com/u/86544979?v=4"> |<img src="https://avatars.githubusercontent.com/u/99471821?v=4"> |
